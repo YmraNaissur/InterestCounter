@@ -8,9 +8,13 @@ import java.util.Map;
 
 public class DebitApp {
 	public static void main(String[] args) {
+		// Goods and their prices
 		Map<String, Double> goods = new HashMap<>();
+		// Persons and their contributions for each good
 		Map<String, Map<String, Double>> persons = new HashMap<>();
+		// How much each person owe for each good
 		Map<String, Double> owes = new HashMap<>();
+		// Balances of persons for each good
 		Map<String, Map<String, Double>> balances = new HashMap<>();
 		
 		String key;
@@ -63,11 +67,16 @@ public class DebitApp {
 			System.out.println(owes);
 			
 			// 4. Calculate each person's balance
-			/*for (String p: persons.keySet()) {
-				for(String o: owes.keySet()) {
-					balances.put(p, persons.get(p) - owes.)
+			Map<String, Double> currentBalance;
+			for (String p: persons.keySet()) {
+				currentBalance = new HashMap<>();
+				for (String s: persons.get(p).keySet()) {
+					currentBalance.put(s, persons.get(p).get(s) - owes.get(s));
 				}
-			}*/
+				balances.put(p, currentBalance);
+			}
+			
+			System.out.println(balances);
 			
 		} catch (IOException e) {
 			e.printStackTrace();
