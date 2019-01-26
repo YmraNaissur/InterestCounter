@@ -1,6 +1,11 @@
 package com.naissur.interestCounter.form;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
+
+import com.naissur.interestCounter.common.TimeUnit;
 
 @ManagedBean(name="simpleCounterForm")
 public class Form {
@@ -8,9 +13,12 @@ public class Form {
 	double interest = 6;
 	double numOfUnits = 1;
 	double countResult = 0;
+	TimeUnit timeUnit = TimeUnit.YEAR;
+	List<TimeUnit> possibleTimeUnits = new ArrayList<>();
 	
 	public Form() {
-		/* No-arg constructor */
+		possibleTimeUnits.add(TimeUnit.MONTH);
+		possibleTimeUnits.add(TimeUnit.YEAR);
 	}
 	
 	public double getInitialAmount() {
@@ -43,5 +51,17 @@ public class Form {
 
 	public void setCountResult(double countResult) {
 		this.countResult = countResult;
+	}
+
+	public TimeUnit getTimeUnit() {
+		return timeUnit;
+	}
+
+	public void setTimeUnit(TimeUnit timeUnit) {
+		this.timeUnit = timeUnit;
+	}
+
+	public List<TimeUnit> getPossibleTimeUnits() {
+		return possibleTimeUnits;
 	}
 }

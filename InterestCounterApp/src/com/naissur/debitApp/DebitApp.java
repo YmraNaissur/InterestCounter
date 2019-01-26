@@ -70,8 +70,8 @@ public class DebitApp {
 			Map<String, Double> currentBalance;
 			for (String p: persons.keySet()) {
 				currentBalance = new HashMap<>();
-				for (String s: persons.get(p).keySet()) {
-					currentBalance.put(s, persons.get(p).get(s) - owes.get(s));
+				for (String good: persons.get(p).keySet()) {
+					currentBalance.put(good, persons.get(p).get(good) - owes.get(good));
 				}
 				balances.put(p, currentBalance);
 			}

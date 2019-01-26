@@ -13,8 +13,11 @@
 			<h:inputText value="#{simpleCounterForm.initialAmount}" /><br />
 			<h:inputText value="#{simpleCounterForm.interest}" /><br />
 			<h:inputText value="#{simpleCounterForm.numOfUnits}" /><br />
+			<h:selectOneMenu value="#{simpleCounterForm.timeUnit}">
+				<f:selectItems value="#{simpleCounterForm.possibleTimeUnits}" />
+			</h:selectOneMenu>
 			<h:commandButton value="submit"
-				action="#{simpleCounterController.countByInitAndInterest(simpleCounterForm)}" />
+				action="#{simpleCounterController.countByInitAndInterest}" />
 		</h:form>
 	</h:body>
 </html>
